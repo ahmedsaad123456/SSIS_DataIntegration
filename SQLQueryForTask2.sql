@@ -39,7 +39,12 @@ SET
     City = 'Dallas', 
     Email = 'john.doe@example.com'
 WHERE ID = 1;
+
+
 select * from CustomerSCD4
+
+DROP TABLE Customer
+DROP TABLE CustomerSCD4
 
 
 
@@ -50,7 +55,7 @@ CREATE TABLE CustomerHistory (
     City VARCHAR(255),
     Email VARCHAR(255),
     From_Date DATE,
-	To_Date DATE
+	To_Date DATE DEFAULT '9999-12-30'
 );
 
 
@@ -66,9 +71,7 @@ select * from CustomerHistory
 
 select max(From_Date) from CustomerHistory
 
-UPDATE CustomerHistory
-SET  
-    To_Date = Null
+
 
 DROP TABLE CustomerHistory
 
