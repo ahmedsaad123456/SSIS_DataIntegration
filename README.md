@@ -37,17 +37,19 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
 
 
 	-- in case "Lookup match output" means the data is already exists in the target and need to update :
+	6- "Check Changed Data" : check if the value of city or email is changed or not
 
-	6- "CustomerHistory Lookup" : we use additional lookup "CustomerHistory" because we need "From_Date" attribute to update 
+ 	-- in case if changed
+	7- "CustomerHistory Lookup" : we use additional lookup "CustomerHistory" because we need "From_Date" attribute to update 
                                 the corresponding "To_Date" with the "Update_Date"
 	
-	7- "Second Multicast" : here we use multicast to send the extracted data to two target tables
+	8- "Second Multicast" : here we use multicast to send the extracted data to two target tables
 
-	8- "Update City_Email in CustomerSCD4" : update "City" and "Email" in "CustomerSCD4" Using the lookupID
+	9- "Update City_Email in CustomerSCD4" : update "City" and "Email" in "CustomerSCD4" Using the lookupID
 
-	9- "Update To_Date in CustomerHistory" : update "To_Date" to "Update_Date" using lookupID and "From_Date"
+	10- "Update To_Date in CustomerHistory" : update "To_Date" to "Update_Date" using lookupID and "From_Date"
 
-	10-"CustomerHistory Destination" : insert the updated data in the "CustomerHistory" table  
+	11-"CustomerHistory Destination" : insert the updated data in the "CustomerHistory" table  
 
  
 
@@ -70,21 +72,19 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
                                 "ID" to make join , "Insert_Date" to check if the Date is changed or not 
                                 "Version_No" we check if the Date wasn't changed increment it by 1
 
-    -- in case "Lookup no match output" means the data is not exists in the target and need to be inserted : 
-
-
-    3- "TargetEmployee Destination" : insert all data in the "TargetEmployee" table expect "Active_Flag" and "Version_No"
-                                      because it will be one by default 
-
-
 	-- in case "Lookup match output" means the data is already exists in the target and need to update :
  
 
-    4- "Update Active_Flag in TargetEmployee" : set the "Active_Flag" to zero where the "ID" = "LookupID" 
+    3- "Update Active_Flag in TargetEmployee" : set the "Active_Flag" to zero where the "ID" = "LookupID" 
 
-    5- "Check Date" : conditional split to check if the "Schedule_Date" was changed or not (to update Version_No)
+    4- "Check Date" : conditional split to check if the "Schedule_Date" was changed or not (to update Version_No)
 
-    6- "TargetEmployee Destination" : if the "Schedule_Date" was changed insert all data in the "TargetEmployee" table expect
+     -- in case "Lookup no match output" means the data is not exists in the target and need to be inserted : 
+
+
+    5- "Union All" : Unoin All output of " Lookup no match output " with output of conditinal split "Changed" that mean the "Schedule_Date" was changed
+
+    6- "TargetEmployee Destination" : insert all data in the "TargetEmployee" table expect
                                       "Active_Flag" and "Version_No" because it will be one by default 
 
     7- "New_Version_No" : if the "Schedule_Date" wasn't changed we use derived column to increment "Version_No" by one 
@@ -99,5 +99,26 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
 - **Solution Approach**: Use SSIS to process data from the `Attendance_Device` source table and transform it into the `Employee_Attendance_Details` target table.
 - **Steps**:
   
+  --------------- in the "Data Flow Task" in details -----------------
+  
+      1- "EmployeeAttendance_in Source" : we select 'Employee_id' , date and 'min time ' of the check in for each employee in different date , and we select 'Finger_Print_TS' to
+  					  use it to get the diffrenece between two times
+     
+      2- "EmployeeAttendance_out Source" : we select 'Employee_id' , date and 'min time ' of the check out only if it is >= the max check in time  for each employee in different date , and we select 
+                                           'Finger_Print_TS' to use it to get the diffrenece between two times
+
+      3- "Sort Date and ID" : sort the data of the "EmployeeAttendance_in Source" based on the date and ID
+
+      4- "Sort Date and ID" : sort the data of the "EmployeeAttendance_in Source" based on the date and ID
+
+      5- "Merge Join" : Merge with Full outer join of the two sources based on hte date and ID to keep the null value
+
+      6- "Worked_hours" : get the Emp_ID from any source to avoid the null
+                            get the Date from any source to avoid null
+                            get the worked_hours using the diffrence between "Finger_Print_TS"
+  
+      7- "State" : get the State according to the criteria that explained in the assignment
+
+      8- "Employee_Attendance_Details Destination" :  insert all data in the "Employee_Attendance_Details" table
 
 
