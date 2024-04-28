@@ -1,3 +1,9 @@
+-- create database called test
+
+
+
+-- create table EmployeeAttendence
+
 CREATE TABLE EmployeeAttendance (
     ID INT PRIMARY KEY identity (1,1),
     Employee_Id INT,
@@ -5,6 +11,10 @@ CREATE TABLE EmployeeAttendance (
     In_Out VARCHAR(10)
 );
 
+-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+-- insert data in the table EmployeeAttendance
 INSERT INTO EmployeeAttendance (Employee_Id, Finger_Print_TS, In_Out)
 VALUES
     (101, '2024-03-13 09:00:00', 'in'),
@@ -35,8 +45,15 @@ VALUES
 VALUES
     (101, '2024-03-15 09:00:00', 'out')
 
+
+
+-- select all data from the table
 select * from EmployeeAttendance 
 
+
+-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+-- select statment for the EmployeeAttendance_in Source (in SSIS)
 
 select Employee_Id , min(CAST(Finger_Print_TS AS time)) AS minTime_in , min(Finger_Print_TS) AS FullTime_in ,(CAST(Finger_Print_TS AS date)) AS Date_in
 FROM EmployeeAttendance
@@ -44,6 +61,10 @@ WHERE In_Out = 'in'
 GROUP BY Employee_Id , (CAST(Finger_Print_TS AS date))
 
 
+-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+-- select statment for the EmployeeAttendance_out Source (in SSIS)
 
 select Employee_Id , min(CAST(Finger_Print_TS AS time)) AS minTime_out , min(Finger_Print_TS) AS FullTime_out ,  (CAST(Finger_Print_TS AS date)) AS Date_out
 FROM EmployeeAttendance AS EMP1
@@ -59,10 +80,18 @@ AND ((CAST(Finger_Print_TS AS time)) >=
 		))
 GROUP BY Employee_Id , (CAST(Finger_Print_TS AS date))
 
+-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+
+
+-- delete table
 DROP TABLE EmployeeAttendance
 
 
+-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+-- create table Employee_Attendance_Details
 
 CREATE TABLE Employee_Attendance_Details (
     Att_Key INT PRIMARY KEY identity (1,1),
@@ -75,14 +104,23 @@ CREATE TABLE Employee_Attendance_Details (
 );
 
 
+-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+-- select all data from the table Employee_Attendance_Details
 select * from Employee_Attendance_Details
 
+
+-- delete table Employee_Attendance_Details
 DROP TABLE Employee_Attendance_Details
 
 
 
+-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
 
 
+
+-- condition on the derived Column 'State' (in SSIS)
 ISNULL(minTime_in) || ISNULL(minTime_out) ? "no check out" : (([minTime_in] == "09:00:00.0000000") && ([worked_hours] > 8) ? "ebn el-shrka" : (([minTime_in] == "09:00:00.0000000") && ([worked_hours] == 8) ? "mo7tram" :(([minTime_in] > "09:00:00.0000000") && ([worked_hours] == 8) ? "raye2" : (([minTime_in] == "09:00:00.0000000") && ([worked_hours] < 8) ? "byst3bat" : (([minTime_in] > "09:00:00.0000000") && ([worked_hours] < 8) ? "msh mo7tram" :"undefined")))))
