@@ -6,7 +6,7 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
 - **Problem**: Load selected fields from a REST API response into a database table.
 - **Steps**:
   - Create a database table named `University` with columns: `name`, `country`, and `alpha_two_code`.
-  - Fetch data from the REST API and map selected fields to the corresponding columns in the `University` table.
+  - Fetch data from the REST API and map selected fields to the corresponding columns in the `University` table using C# script.
   
 ## Task 2: Implement SCD Type 4
 - **Problem**: Implement Slowly Changing Dimension (SCD) Type 4 for a source table.
@@ -20,11 +20,11 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
 --------------- in the "Data Flow Task" in details ------------------
 
 
-    1- "Customer Table Source " : we select all row from the "Customer" table but only if the "Update_Date" > MaxDate that
+    1- "Customer Table Source " : we select all rows from the "Customer" table but only if the "Update_Date" > MaxDate that
                                   we extract it from "CustomerHistory" and that means we load only the changed data.
 
     2- "CustomerSCD4 Lookup" : we use "CustomerSCD4" table as lookup to determine if the extracted data exists in the 
-                               target tables or not
+                               target tables or not.
 
 	-- in case "Lookup no match output" :
 
@@ -65,12 +65,12 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
     1- "Employee Table Source" : we select all row from the "Employee" table
 
     2- "TargetEmployee Lookup" : we use "TargetEmployee" table as lookup to determine if the extracted data exists in the 
-                                target tables or not , and we select the following four attributes 
+                                target tables or not , we select the following four attributes 
                                 "Emp_Key"  , "ID" , "Insert_Date" , "Version_No" only if the "Active_Flag" = 1
                                 "ID" to make join , "Insert_Date" to check if the Date is changed or not 
-                                "Version_No" we use it if the Date wasn't changed add one to it
+                                "Version_No" we check if the Date wasn't changed increment it by 1
 
-    -- in case "Lookup no match output" :
+    -- in case "Lookup no match output" means the data is not exists in the target and need to be inserted : 
 
 
     3- "TargetEmployee Destination" : insert all data in the "TargetEmployee" table expect "Active_Flag" and "Version_No"
@@ -82,12 +82,12 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
 
     4- "Update Active_Flag in TargetEmployee" : set the "Active_Flag" to zero where the "ID" = "LookupID" 
 
-    5- "Check Date" : conditional split to check if the "Schedule_Date" was changed or not 
+    5- "Check Date" : conditional split to check if the "Schedule_Date" was changed or not (to update Version_No)
 
     6- "TargetEmployee Destination" : if the "Schedule_Date" was changed insert all data in the "TargetEmployee" table expect
                                       "Active_Flag" and "Version_No" because it will be one by default 
 
-    7- "New_Version_No" : if the "Schedule_Date" wasn't changed we use derived column to increase "Version_No" by one 
+    7- "New_Version_No" : if the "Schedule_Date" wasn't changed we use derived column to increment "Version_No" by one 
 
     8- "TargetEmployee Destination" : insert all data in the "TargetEmployee" table expect "Active_Flag" 
                                       because it will be one by default and "Version_No" will be assign to "new_version_no"
