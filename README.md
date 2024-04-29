@@ -118,7 +118,7 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
                             get the worked_hours using the diffrence between "Finger_Print_TS"
   
       7- "State" : get the State according to the following criteria :
-           "State"                    "Description"
+           **State**                  **Description**
            ebn el-shrka               Arrived on time (9 am) and worked more than 8 hours
            mo7tram                    Arrived on time and worked 8 hours
 	   raye2                      Arrived late but worked 8 hours
