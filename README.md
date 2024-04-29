@@ -118,7 +118,8 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
                             get the worked_hours using the diffrence between "Finger_Print_TS"
   
       7- "State" : get the State according to the following criteria :
-			![image](https://github.com/ahmedsaad123456/SSIS_DataIntegration/assets/92929722/dc615b06-5631-4b08-9300-4c254b33e661)
+			![Screenshot 2024-04-29 115628](https://github.com/ahmedsaad123456/SSIS_DataIntegration/assets/92929722/0c6f1b8e-3265-49b0-a9c7-bb3553d707fe)
+
 
 
       8- "Employee_Attendance_Details Destination" :  insert all data in the "Employee_Attendance_Details" table
