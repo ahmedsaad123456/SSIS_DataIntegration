@@ -26,7 +26,7 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
     2- "CustomerSCD4 Lookup" : we use "CustomerSCD4" table as lookup to determine if the extracted data exists in the 
                                target tables or not.
 
-	-- in case "Lookup no match output" :
+	-- in case "Lookup no match output" means the data not exists in the target and need to be inserted :
 
 	3- "First Multicast" : here we use multicast to send the extracted data to two target tables
 
@@ -101,10 +101,10 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
   
   --------------- in the "Data Flow Task" in details -----------------
   
-      1- "EmployeeAttendance_in Source" : we select 'Employee_id' , date and 'min time ' of the check in for each employee in different date , and we select 'Finger_Print_TS' to
+      1- "EmployeeAttendance_in Source" (to get Time_in): we select 'Employee_id' , date and 'min time ' of the check in for each employee in different date , and we select 'Finger_Print_TS' to
   					  use it to get the diffrenece between two times
      
-      2- "EmployeeAttendance_out Source" : we select 'Employee_id' , date and 'min time ' of the check out only if it is >= the max check in time  for each employee in different date , and we select 
+      2- "EmployeeAttendance_out Source" (to get Time_out): we select 'Employee_id' , date and 'min time ' of the check out only if it is >= the max check in time  for each employee in different date , and we select 
                                            'Finger_Print_TS' to use it to get the diffrenece between two times
 
       3- "Sort Date and ID" : sort the data of the "EmployeeAttendance_in Source" based on the date and ID
@@ -113,11 +113,13 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
 
       5- "Merge Join" : Merge with Full outer join of the two sources based on hte date and ID to keep the null value
 
-      6- "Worked_hours" : get the Emp_ID from any source to avoid the null
-                            get the Date from any source to avoid null
+      6- "Worked_hours" :   get the Emp_ID from any source to avoid the null (using ISNULL)
+                            get the Date from any source to avoid null (using ISNULL)
                             get the worked_hours using the diffrence between "Finger_Print_TS"
   
-      7- "State" : get the State according to the criteria that explained in the assignment
+      7- "State" : get the State according to the following criteria :
+			![image](https://github.com/ahmedsaad123456/SSIS_DataIntegration/assets/92929722/dc615b06-5631-4b08-9300-4c254b33e661)
+
 
       8- "Employee_Attendance_Details Destination" :  insert all data in the "Employee_Attendance_Details" table
 
