@@ -118,8 +118,14 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
                             get the worked_hours using the diffrence between "Finger_Print_TS"
   
       7- "State" : get the State according to the following criteria :
-           ![Screenshot 2024-04-29 115628](https://github.com/ahmedsaad123456/SSIS_DataIntegration/assets/92929722/c90bedbd-2beb-480b-aa37-9a24b0ff3c58)
-
+           "State"                    "Description"
+           ebn el-shrka               Arrived on time (9 am) and worked more than 8 hours
+           mo7tram                    Arrived on time and worked 8 hours
+	   raye2                      Arrived late but worked 8 hours
+           byst3bat                   Arrived on time but worked less than 8 hours
+           msh mo7tram                Arrived late and worked less than 8 hours
+           no check out               No check-out record for the employee on that day
+           undefined                  Any different scenario
 
       8- "Employee_Attendance_Details Destination" :  insert all data in the "Employee_Attendance_Details" table
 
