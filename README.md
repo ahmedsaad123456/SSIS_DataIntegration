@@ -40,16 +40,14 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
 	6- "Check Changed Data" : check if the value of city or email is changed or not
 
  	-- in case if changed
-	7- "CustomerHistory Lookup" : we use additional lookup "CustomerHistory" because we need "From_Date" attribute to update 
-                                the corresponding "To_Date" with the "Update_Date"
 	
-	8- "Second Multicast" : here we use multicast to send the extracted data to two target tables
+	7- "Second Multicast" : here we use multicast to send the extracted data to two target tables
 
-	9- "Update City_Email in CustomerSCD4" : update "City" and "Email" in "CustomerSCD4" Using the lookupID
+	8- "Update City_Email in CustomerSCD4" : update "City" and "Email" in "CustomerSCD4" Using the lookupID
 
-	10- "Update To_Date in CustomerHistory" : update "To_Date" to "Update_Date" using lookupID and "From_Date"
+	9- "Update To_Date in CustomerHistory" : update "To_Date" to "Update_Date" using lookupID and "To_Date" = "9999-12-30" 
 
-	11-"CustomerHistory Destination" : insert the updated data in the "CustomerHistory" table  
+	10-"CustomerHistory Destination" : insert the updated data in the "CustomerHistory" table  
 
  
 
@@ -98,7 +96,10 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
 - **Problem**: Read data from an attendance device and transform it into a target table with a descriptive state for each record.
 - **Solution Approach**: Use SSIS to process data from the `Attendance_Device` source table and transform it into the `Employee_Attendance_Details` target table.
 - **Steps**:
-  
+- 
+  1- "GET LAST EXTRACT DATE" : here we select max "Date" from table "Employee_Attendance_Details" to use Incremental Load
+
+2- in the "Data Flow Task" : load from table "Attendance_Device" to target table "Employee_Attendance_Details"
   --------------- in the "Data Flow Task" in details -----------------
   
       1- "EmployeeAttendance_in Source" (to get Time_in): we select 'Employee_id' , date and 'min time ' of the check in for each employee in different date , and we select 'Finger_Print_TS' to
@@ -109,7 +110,7 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
 
       3- "Sort Date and ID" : sort the data of the "EmployeeAttendance_in Source" based on the date and ID
 
-      4- "Sort Date and ID" : sort the data of the "EmployeeAttendance_in Source" based on the date and ID
+      4- "Sort Date and ID" : sort the data of the "EmployeeAttendance_out Source" based on the date and ID
 
       5- "Merge Join" : Merge with Full outer join of the two sources based on hte date and ID to keep the null value
 
