@@ -37,9 +37,9 @@ INSERT INTO Customer (ID, Name, City, Email, Update_Date) VALUES (10, 'Emma Hern
 -- update statement to change the city or email
 UPDATE Customer 
 SET Name = 'John Doe', 
-    City = 'Los', 
+    City = 'los', 
     Email = 'john.doe@example.com', 
-    Update_Date = '2024-04-28'
+    Update_Date = '2024-04-30'
 WHERE ID = 1;
 
 
@@ -109,12 +109,12 @@ CREATE TABLE CustomerHistory (
 -- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
--- update To_Date based on Id and From Date (in SSIS)
+-- update To_Date based on Id and To_Date (in SSIS)
 
 UPDATE CustomerHistory
 SET  
     To_Date = ?
-WHERE Customer_ID = ? and From_Date = ?;
+WHERE Customer_ID = ? and To_Date = '9999-12-30';
 
 
 -- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

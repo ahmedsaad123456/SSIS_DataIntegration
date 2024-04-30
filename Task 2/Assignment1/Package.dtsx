@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{4F86BB45-1DE9-4DE8-A30A-084BC01B9FD8}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{87CEAFFA-7A74-4F98-96A2-8C8E7348E39C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -268,147 +268,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="10 Update To_Date in CustomerHistory"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE CustomerHistory
-SET  
-    To_Date = ?
-WHERE Customer_ID = ? and From_Date = ?;</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-SVQ0715Q.test1]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-SVQ0715Q.test1]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].Columns[Update_Date]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Update_Date"
-                      externalMetadataColumnId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Data Flow Task\1 Customer Table Source.Outputs[OLE DB Source Output].Columns[Update_Date]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].Columns[ID]"
-                      cachedDataType="i4"
-                      cachedName="ID"
-                      externalMetadataColumnId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Data Flow Task\2 CustomerSCD4 Lookup.Outputs[Lookup Match Output].Columns[ID]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].Columns[From_Date]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="From_Date"
-                      externalMetadataColumnId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup Match Output].Columns[From_Date]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="wstr"
-                      length="10"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="wstr"
-                      length="10"
-                      name="Param_2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\11 CustomerHistory Destination"
+              refId="Package\Data Flow Task\10 CustomerHistory Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="11 CustomerHistory Destination"
+              name="10 CustomerHistory Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -461,7 +325,7 @@ WHERE Customer_ID = ? and From_Date = ?;</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\11 CustomerHistory Destination.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\10 CustomerHistory Destination.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-SVQ0715Q.test1]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-SVQ0715Q.test1]"
                   description="The OLE DB runtime connection used to access the database."
@@ -469,85 +333,85 @@ WHERE Customer_ID = ? and From_Date = ?;</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].Columns[Name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Name"
-                      externalMetadataColumnId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      externalMetadataColumnId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       lineageId="Package\Data Flow Task\1 Customer Table Source.Outputs[OLE DB Source Output].Columns[Name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].Columns[City]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].Columns[City]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="City"
-                      externalMetadataColumnId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      externalMetadataColumnId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
                       lineageId="Package\Data Flow Task\1 Customer Table Source.Outputs[OLE DB Source Output].Columns[City]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].Columns[Email]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Email"
-                      externalMetadataColumnId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      externalMetadataColumnId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
                       lineageId="Package\Data Flow Task\1 Customer Table Source.Outputs[OLE DB Source Output].Columns[Email]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].Columns[ID]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].Columns[ID]"
                       cachedDataType="i4"
                       cachedName="ID"
-                      externalMetadataColumnId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer_ID]"
+                      externalMetadataColumnId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer_ID]"
                       lineageId="Package\Data Flow Task\2 CustomerSCD4 Lookup.Outputs[Lookup Match Output].Columns[ID]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].Columns[Update_Date]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].Columns[Update_Date]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="Update_Date"
-                      externalMetadataColumnId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[From_Date]"
+                      externalMetadataColumnId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[From_Date]"
                       lineageId="Package\Data Flow Task\1 Customer Table Source.Outputs[OLE DB Source Output].Columns[Update_Date]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
                       dataType="i4"
                       name="ID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="City" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Email" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer_ID]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer_ID]"
                       dataType="i4"
                       name="Customer_ID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[From_Date]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[From_Date]"
                       dataType="wstr"
                       length="10"
                       name="From_Date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[To_Date]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input].ExternalColumns[To_Date]"
                       dataType="wstr"
                       length="10"
                       name="To_Date" />
@@ -556,22 +420,22 @@ WHERE Customer_ID = ? and From_Date = ?;</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\11 CustomerHistory Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\10 CustomerHistory Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\11 CustomerHistory Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\10 CustomerHistory Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\11 CustomerHistory Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\10 CustomerHistory Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\11 CustomerHistory Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\10 CustomerHistory Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1250,208 +1114,49 @@ where [refTable].[ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\7 CustomerHistory Lookup"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="7 CustomerHistory Lookup"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[CustomerHistory]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[CustomerHistory]) [refTable]
-where [refTable].[Customer_ID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Customer_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="City" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Email" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="From_Date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="To_Date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\2 CustomerSCD4 Lookup.Outputs[Lookup Match Output].Columns[ID]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\7 CustomerHistory Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LAPTOP-SVQ0715Q.test1]"
-                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-SVQ0715Q.test1]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\7 CustomerHistory Lookup.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\7 CustomerHistory Lookup.Inputs[Lookup Input].Columns[ID]"
-                      cachedDataType="i4"
-                      cachedName="ID"
-                      lineageId="Package\Data Flow Task\2 CustomerSCD4 Lookup.Outputs[Lookup Match Output].Columns[ID]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Customer_ID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\7 CustomerHistory Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup Match Output].Columns[From_Date]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Copy Column"
-                      length="10"
-                      lineageId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup Match Output].Columns[From_Date]"
-                      name="From_Date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">From_Date</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\7 CustomerHistory Lookup.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\7 CustomerHistory Lookup.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\8 Second Multicast"
+              refId="Package\Data Flow Task\7 Second Multicast"
               componentClassID="Microsoft.Multicast"
               contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
-              name="8 Second Multicast">
+              name="7 Second Multicast">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\8 Second Multicast.Inputs[Multicast Input 1]"
+                  refId="Package\Data Flow Task\7 Second Multicast.Inputs[Multicast Input 1]"
                   name="Multicast Input 1">
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\8 Second Multicast.Outputs[Multicast Output 1]"
+                  refId="Package\Data Flow Task\7 Second Multicast.Outputs[Multicast Output 1]"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 1"
-                  synchronousInputId="Package\Data Flow Task\8 Second Multicast.Inputs[Multicast Input 1]">
+                  synchronousInputId="Package\Data Flow Task\7 Second Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\8 Second Multicast.Outputs[Multicast Output 2]"
+                  refId="Package\Data Flow Task\7 Second Multicast.Outputs[Multicast Output 2]"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 2"
-                  synchronousInputId="Package\Data Flow Task\8 Second Multicast.Inputs[Multicast Input 1]">
+                  synchronousInputId="Package\Data Flow Task\7 Second Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\8 Second Multicast.Outputs[Multicast Output 3]"
+                  refId="Package\Data Flow Task\7 Second Multicast.Outputs[Multicast Output 3]"
                   dangling="true"
                   deleteOutputOnPathDetached="true"
                   name="Multicast Output 3"
-                  synchronousInputId="Package\Data Flow Task\8 Second Multicast.Inputs[Multicast Input 1]">
+                  synchronousInputId="Package\Data Flow Task\7 Second Multicast.Inputs[Multicast Input 1]">
                   <externalMetadataColumns />
                 </output>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4"
+              refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="9 Update City_Email In CustomerSCD4"
+              name="8 Update City_Email In CustomerSCD4"
               usesDispositions="true"
               version="2">
               <properties>
@@ -1476,7 +1181,7 @@ WHERE ID = ?;</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LAPTOP-SVQ0715Q.test1]"
                   connectionManagerRefId="Package.ConnectionManagers[LAPTOP-SVQ0715Q.test1]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1484,39 +1189,39 @@ WHERE ID = ?;</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input]"
+                  refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].Columns[City]"
+                      refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].Columns[City]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="City"
-                      externalMetadataColumnId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Data Flow Task\1 Customer Table Source.Outputs[OLE DB Source Output].Columns[City]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].Columns[Email]"
+                      refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].Columns[Email]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Email"
-                      externalMetadataColumnId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\Data Flow Task\1 Customer Table Source.Outputs[OLE DB Source Output].Columns[Email]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].Columns[ID]"
+                      refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].Columns[ID]"
                       cachedDataType="i4"
                       cachedName="ID"
-                      externalMetadataColumnId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\Data Flow Task\2 CustomerSCD4 Lookup.Outputs[Lookup Match Output].Columns[ID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       codePage="1252"
                       dataType="str"
                       length="255"
@@ -1529,7 +1234,7 @@ WHERE ID = ?;</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       codePage="1252"
                       dataType="str"
                       length="255"
@@ -1542,7 +1247,7 @@ WHERE ID = ?;</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       dataType="i4"
                       name="Param_2">
                       <properties>
@@ -1557,29 +1262,146 @@ WHERE ID = ?;</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Output]"
+                  refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Error Output]"
+                  refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="9 Update To_Date in CustomerHistory"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE CustomerHistory
+SET  
+    To_Date = ?
+WHERE Customer_ID = ? and To_Date = '9999-12-30';</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-SVQ0715Q.test1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-SVQ0715Q.test1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].Columns[Update_Date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Update_Date"
+                      externalMetadataColumnId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\1 Customer Table Source.Outputs[OLE DB Source Output].Columns[Update_Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Data Flow Task\2 CustomerSCD4 Lookup.Outputs[Lookup Match Output].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="10"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1591,16 +1413,11 @@ WHERE ID = ?;</property>
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[Chanegd]"
-              endId="Package\Data Flow Task\7 CustomerHistory Lookup.Inputs[Lookup Input]"
+              endId="Package\Data Flow Task\7 Second Multicast.Inputs[Multicast Input 1]"
               name="Chanegd"
               startId="Package\Data Flow Task\6 Check Changed Data.Outputs[Chanegd]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup Match Output]"
-              endId="Package\Data Flow Task\8 Second Multicast.Inputs[Multicast Input 1]"
-              name="Lookup Match Output"
-              startId="Package\Data Flow Task\7 CustomerHistory Lookup.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output1]"
               endId="Package\Data Flow Task\6 Check Changed Data.Inputs[Conditional Split Input]"
               name="Lookup Match Output"
               startId="Package\Data Flow Task\2 CustomerSCD4 Lookup.Outputs[Lookup Match Output]" />
@@ -1616,9 +1433,9 @@ WHERE ID = ?;</property>
               startId="Package\Data Flow Task\3 First Multicast.Outputs[Multicast Output 1]" />
             <path
               refId="Package\Data Flow Task.Paths[Multicast Output 11]"
-              endId="Package\Data Flow Task\9 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input]"
+              endId="Package\Data Flow Task\8 Update City_Email In CustomerSCD4.Inputs[OLE DB Command Input]"
               name="Multicast Output 1"
-              startId="Package\Data Flow Task\8 Second Multicast.Outputs[Multicast Output 1]" />
+              startId="Package\Data Flow Task\7 Second Multicast.Outputs[Multicast Output 1]" />
             <path
               refId="Package\Data Flow Task.Paths[Multicast Output 2]"
               endId="Package\Data Flow Task\5 CustomerHistory Destination.Inputs[OLE DB Destination Input]"
@@ -1626,14 +1443,14 @@ WHERE ID = ?;</property>
               startId="Package\Data Flow Task\3 First Multicast.Outputs[Multicast Output 2]" />
             <path
               refId="Package\Data Flow Task.Paths[Multicast Output 21]"
-              endId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input]"
+              endId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Inputs[OLE DB Command Input]"
               name="Multicast Output 2"
-              startId="Package\Data Flow Task\8 Second Multicast.Outputs[Multicast Output 2]" />
+              startId="Package\Data Flow Task\7 Second Multicast.Outputs[Multicast Output 2]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Command Output]"
-              endId="Package\Data Flow Task\11 CustomerHistory Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\10 CustomerHistory Destination.Inputs[OLE DB Destination Input]"
               name="OLE DB Command Output"
-              startId="Package\Data Flow Task\10 Update To_Date in CustomerHistory.Outputs[OLE DB Command Output]" />
+              startId="Package\Data Flow Task\9 Update To_Date in CustomerHistory.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
               endId="Package\Data Flow Task\2 CustomerSCD4 Lookup.Inputs[Lookup Input]"
@@ -1727,59 +1544,81 @@ WHERE ID = ?;</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\Data Flow Task\4 CustomerSCD4 Destination"
+          TopLeft="567.767826121391,502.326186983077" />
+        <NodeLayout
+          Size="254.4,41.6"
+          Id="Package\Data Flow Task\9 Update To_Date in CustomerHistory"
+          TopLeft="285.699985657634,502.233329840865" />
+        <NodeLayout
           Size="224.8,41.6"
-          Id="Package\Data Flow Task\11 CustomerHistory Destination"
+          Id="Package\Data Flow Task\10 CustomerHistory Destination"
           TopLeft="302.321412053315,624.526186133313" />
         <NodeLayout
-          Size="219.2,41.6"
-          Id="Package\Data Flow Task\5 CustomerHistory Destination"
-          TopLeft="816.1928225358,502.17142507939" />
+          Size="186.4,41.6"
+          Id="Package\Data Flow Task\6 Check Changed Data"
+          TopLeft="227.083320926048,213.083331969794" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Data Flow Task\7 Second Multicast"
+          TopLeft="234.613082419402,309.833331178791" />
         <NodeLayout
           Size="196.8,41.6"
           Id="Package\Data Flow Task\2 CustomerSCD4 Lookup"
           TopLeft="420.416643696115,96.1999993310367" />
         <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\Data Flow Task\7 CustomerHistory Lookup"
-          TopLeft="224.044036514282,305.252378829693" />
-        <NodeLayout
           Size="260,41.6"
-          Id="Package\Data Flow Task\10 Update To_Date in CustomerHistory"
-          TopLeft="285.699985657634,502.233329840865" />
-        <NodeLayout
-          Size="214.4,41.6"
-          Id="Package\Data Flow Task\4 CustomerSCD4 Destination"
-          TopLeft="567.767826121391,502.326186983077" />
-        <NodeLayout
-          Size="260,41.6"
-          Id="Package\Data Flow Task\9 Update City_Email In CustomerSCD4"
+          Id="Package\Data Flow Task\8 Update City_Email In CustomerSCD4"
           TopLeft="0.708333595138441,502.533329877026" />
-        <NodeLayout
-          Size="196.8,41.6"
-          Id="Package\Data Flow Task\1 Customer Table Source"
-          TopLeft="417.916643832709,12.1333332489596" />
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Data Flow Task\3 First Multicast"
           TopLeft="681.249962778144,306.79999786655" />
         <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\Data Flow Task\8 Second Multicast"
-          TopLeft="248.779748312036,402.566663867268" />
+          Size="196.8,41.6"
+          Id="Package\Data Flow Task\1 Customer Table Source"
+          TopLeft="417.916643832709,12.1333332489596" />
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Data Flow Task\5 CustomerHistory Destination"
+          TopLeft="816.1928225358,502.17142507939" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Command Output]"
-          TopLeft="415.210698855475,543.833329840865">
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="517.566643764412,53.7333332489596">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,80.6928562924481"
+              EndConnector="0,42.4666660820771"
               Start="0,0"
-              End="0,73.1928562924481">
+              End="0,34.9666660820771">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,73.1928562924481" />
+                    End="0,34.9666660820771" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Command Output]"
+          TopLeft="413.810698855474,543.833329840865">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80.692856292448"
+              Start="0,0"
+              End="0,73.192856292448">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.192856292448" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1790,30 +1629,30 @@ WHERE ID = ?;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Multicast Output 21]"
-          TopLeft="358.379748312036,444.166663867268">
+          TopLeft="344.213082419402,351.433331178791">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="57.3202373455982,58.0666659735968"
+              EndConnector="68.686903238232,150.799998662074"
               Start="0,0"
-              End="57.3202373455982,50.5666659735968">
+              End="68.686903238232,143.299998662074">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.5584759092878" />
+                    End="0,57.1817137428986" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.5584759092878"
-                    Point2="0,23.5584759092878"
-                    Point3="4,23.5584759092878" />
+                    Point1="0,57.1817137428986"
+                    Point2="0,61.1817137428986"
+                    Point3="4,61.1817137428986" />
                   <mssgle:LineSegment
-                    End="53.3202373455982,23.5584759092878" />
+                    End="64.686903238232,61.1817137428986" />
                   <mssgle:CubicBezierSegment
-                    Point1="53.3202373455982,23.5584759092878"
-                    Point2="57.3202373455982,23.5584759092878"
-                    Point3="57.3202373455982,27.5584759092878" />
+                    Point1="64.686903238232,61.1817137428986"
+                    Point2="68.686903238232,61.1817137428986"
+                    Point3="68.686903238232,65.1817137428986" />
                   <mssgle:LineSegment
-                    End="57.3202373455982,50.5666659735968" />
+                    End="68.686903238232,143.299998662074" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1858,30 +1697,30 @@ WHERE ID = ?;</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Multicast Output 11]"
-          TopLeft="305.579748312036,444.166663867268">
+          TopLeft="291.413082419402,351.433331178791">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-174.871414716897,58.3666660097578"
+              EndConnector="-160.704748824264,151.099998698235"
               Start="0,0"
-              End="-174.871414716897,50.8666660097578">
+              End="-160.704748824264,143.599998698235">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.6801902096732" />
+                    End="0,57.3034280432839" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.6801902096732"
-                    Point2="0,23.6801902096732"
-                    Point3="-4,23.6801902096732" />
+                    Point1="0,57.3034280432839"
+                    Point2="0,61.3034280432839"
+                    Point3="-4,61.3034280432839" />
                   <mssgle:LineSegment
-                    End="-170.871414716897,23.6801902096732" />
+                    End="-156.704748824264,61.3034280432839" />
                   <mssgle:CubicBezierSegment
-                    Point1="-170.871414716897,23.6801902096732"
-                    Point2="-174.871414716897,23.6801902096732"
-                    Point3="-174.871414716897,27.6801902096732" />
+                    Point1="-156.704748824264,61.3034280432839"
+                    Point2="-160.704748824264,61.3034280432839"
+                    Point3="-160.704748824264,65.3034280432839" />
                   <mssgle:LineSegment
-                    End="-174.871414716897,50.8666660097578" />
+                    End="-160.704748824264,143.599998698235" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1956,62 +1795,12 @@ WHERE ID = ?;</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="47.4769394889312,73.417741342603,111.6127734375,11.609375"
+              BoundingBox="47.476939488931,73.417741342603,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="328.411892413159,346.852378829693">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55.7142850375751"
-              Start="0,0"
-              End="0,48.2142850375751">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.2142850375751" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,18.3024550187876,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="517.566643764412,53.7333332489596">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.4666660820771"
-              Start="0,0"
-              End="0,34.9666660820771">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.9666660820771" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="186.4,41.6"
-          Id="Package\Data Flow Task\6 Check Changed Data"
-          TopLeft="227.083320926048,213.083331969794" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
           TopLeft="487.349977029448,137.799999331037">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -2042,31 +1831,31 @@ WHERE ID = ?;</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-131.72471477045,35.4776072456906,96.3827734375,11.609375"
+              BoundingBox="-131.724714770451,35.4776072456906,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Chanegd]"
-          TopLeft="322.563678720165,254.683331969794">
+          TopLeft="319.048201672725,254.683331969794">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,50.5690468598987"
+              EndConnector="0,55.149999208997"
               Start="0,0"
-              End="0,43.0690468598987">
+              End="0,47.649999208997">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.0690468598987" />
+                    End="0,47.649999208997" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-19.8755078125,15.7029804611994,39.751015625,11.6630859375"
+              BoundingBox="-19.8755078125,17.9934566357485,39.751015625,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2074,20 +1863,7 @@ WHERE ID = ?;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\11 CustomerHistory Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\5 CustomerHistory Destination">
+    design-time-name="Package\Data Flow Task\10 CustomerHistory Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2105,35 +1881,12 @@ WHERE ID = ?;</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[CustomerSCD4]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\7 CustomerHistory Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[CustomerHistory]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -2160,6 +1913,19 @@ WHERE ID = ?;</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\1 Customer Table Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\5 CustomerHistory Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
