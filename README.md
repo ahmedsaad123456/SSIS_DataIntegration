@@ -131,3 +131,13 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
       8- "Employee_Attendance_Details Destination" :  insert all data in the "Employee_Attendance_Details" table
 
 
+## Contributors
+
+
+- [Ahmed Saad](https://github.com/ahmedsaad123456).
+
+- [Sara Walid](https://github.com/sarawalid99).
+
+Special thanks to everyone who has helped make this project better.
+
+
