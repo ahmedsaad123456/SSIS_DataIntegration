@@ -45,7 +45,7 @@ This SSIS assignment involves solving four different tasks using Microsoft SQL S
 
 	8- "Update City_Email in CustomerSCD4" : update "City" and "Email" in "CustomerSCD4" Using the lookupID
 
-	9- "Update To_Date in CustomerHistory" : update "To_Date" to "Update_Date" using lookupID and "To_Date" = "9999-12-30" 
+	9- "Update To_Date in CustomerHistory" : update "To_Date" to "DATEADD(DAY,-1,Update_Date)" using lookupID and "To_Date" = "9999-12-30" 
 
 	10-"CustomerHistory Destination" : insert the updated data in the "CustomerHistory" table  
 
