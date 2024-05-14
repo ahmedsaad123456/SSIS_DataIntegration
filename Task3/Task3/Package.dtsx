@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{B5BFFFC3-4EF6-4A0F-812B-52E9BED92C39}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{B2E37F35-AE9B-4577-A400-84145F492343}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1388,29 +1388,59 @@ where ID = ? ;</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="218.4,41.6"
+          Id="Package\Data Flow Task\6 TargetEmployee Destination"
+          TopLeft="125.74073387057,650.599995931983" />
+        <NodeLayout
           Size="200,41.6"
           Id="Package\Data Flow Task\2 TargetEmployee Lookup"
           TopLeft="300.833316896525,150.799998951356" />
         <NodeLayout
-          Size="168,41.6"
-          Id="Package\Data Flow Task\7 New_Version_No"
-          TopLeft="542.499970359108,493.999996564786" />
-        <NodeLayout
-          Size="140.8,41.6"
-          Id="Package\Data Flow Task\4 Chcek Date"
-          TopLeft="374.999979510904,365.73333079007" />
-        <NodeLayout
-          Size="218.4,41.6"
-          Id="Package\Data Flow Task\8 TargetEmployee Destination"
-          TopLeft="519.166638300652,644.666662990385" />
+          Size="128.8,41.6"
+          Id="Package\Data Flow Task\5 Union All"
+          TopLeft="165.8333242726,495.399997016787" />
         <NodeLayout
           Size="268,41.6"
           Id="Package\Data Flow Task\3 Update Active_Flag in TargetEmployee"
           TopLeft="511.666638710434,279.066664726071" />
         <NodeLayout
+          Size="218.4,41.6"
+          Id="Package\Data Flow Task\8 TargetEmployee Destination"
+          TopLeft="519.166638300652,644.666662990385" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Data Flow Task\4 Chcek Date"
+          TopLeft="374.999979510904,365.73333079007" />
+        <NodeLayout
           Size="197.6,41.6"
           Id="Package\Data Flow Task\1 Employee Table Source"
           TopLeft="303.333316759932,39.8666663894389" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Data Flow Task\7 New_Version_No"
+          TopLeft="542.499970359108,493.999996564786" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Union All Output 1]"
+          TopLeft="232.587029071585,536.999997016787">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,113.599998915196"
+              Start="0,0"
+              End="0,106.099998915196">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,106.099998915196" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="401.483316828229,81.4666663894389">
@@ -1504,6 +1534,42 @@ where ID = ? ;</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="368.833316896525,192.399998951356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-158.733325957258,302.999998065431"
+              Start="0,0"
+              End="-158.733325957258,295.499998065431">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,146.683361644677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,146.683361644677"
+                    Point2="0,150.683361644677"
+                    Point3="-4,150.683361644677" />
+                  <mssgle:LineSegment
+                    End="-154.733325957258,150.683361644677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-154.733325957258,150.683361644677"
+                    Point2="-158.733325957258,150.683361644677"
+                    Point3="-158.733325957258,154.683361644677" />
+                  <mssgle:LineSegment
+                    End="-158.733325957258,295.499998065431" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-135.173049697379,155.683361644677,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output]"
           TopLeft="432.833316896525,192.399998951356">
           <EdgeLayout.Curve>
@@ -1539,10 +1605,6 @@ where ID = ? ;</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="218.4,41.6"
-          Id="Package\Data Flow Task\6 TargetEmployee Destination"
-          TopLeft="125.74073387057,650.599995931983" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="627.43330432988,535.599996564786">
@@ -1563,46 +1625,6 @@ where ID = ? ;</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="128.8,41.6"
-          Id="Package\Data Flow Task\5 Union All"
-          TopLeft="165.8333242726,495.399997016787" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
-          TopLeft="368.833316896525,192.399998951356">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-158.733325957258,302.999998065431"
-              Start="0,0"
-              End="-158.733325957258,295.499998065431">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,146.683361644677" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,146.683361644677"
-                    Point2="0,150.683361644677"
-                    Point3="-4,150.683361644677" />
-                  <mssgle:LineSegment
-                    End="-154.733325957258,150.683361644677" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-154.733325957258,150.683361644677"
-                    Point2="-158.733325957258,150.683361644677"
-                    Point3="-158.733325957258,154.683361644677" />
-                  <mssgle:LineSegment
-                    End="-158.733325957258,295.499998065431" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-135.173049697379,155.683361644677,111.6127734375,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1641,31 +1663,22 @@ where ID = ? ;</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Union All Output 1]"
-          TopLeft="232.587029071585,536.999997016787">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,113.599998915196"
-              Start="0,0"
-              End="0,106.099998915196">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,106.099998915196" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\6 TargetEmployee Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\2 TargetEmployee Lookup">
     <Properties>
@@ -1704,19 +1717,6 @@ where ID = ? ;</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\1 Employee Table Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\6 TargetEmployee Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

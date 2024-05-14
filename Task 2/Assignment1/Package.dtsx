@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="34"
-  DTS:VersionGUID="{87CEAFFA-7A74-4F98-96A2-8C8E7348E39C}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{F83DE29D-22DA-427D-845E-860BE8BE0834}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1312,7 +1312,7 @@ WHERE ID = ?;</property>
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE CustomerHistory
 SET  
-    To_Date = ?
+    To_Date = DATEADD(DAY, -1, ?)
 WHERE Customer_ID = ? and To_Date = '9999-12-30';</property>
                 <property
                   dataType="System.Int32"
@@ -1544,33 +1544,33 @@ WHERE Customer_ID = ? and To_Date = '9999-12-30';</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="214.4,41.6"
-          Id="Package\Data Flow Task\4 CustomerSCD4 Destination"
-          TopLeft="567.767826121391,502.326186983077" />
-        <NodeLayout
-          Size="254.4,41.6"
-          Id="Package\Data Flow Task\9 Update To_Date in CustomerHistory"
-          TopLeft="285.699985657634,502.233329840865" />
+          Size="260,41.6"
+          Id="Package\Data Flow Task\8 Update City_Email In CustomerSCD4"
+          TopLeft="0.708333595138441,502.533329877026" />
         <NodeLayout
           Size="224.8,41.6"
           Id="Package\Data Flow Task\10 CustomerHistory Destination"
           TopLeft="302.321412053315,624.526186133313" />
         <NodeLayout
+          Size="254.4,41.6"
+          Id="Package\Data Flow Task\9 Update To_Date in CustomerHistory"
+          TopLeft="285.699985657634,502.233329840865" />
+        <NodeLayout
           Size="186.4,41.6"
           Id="Package\Data Flow Task\6 Check Changed Data"
           TopLeft="227.083320926048,213.083331969794" />
-        <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\Data Flow Task\7 Second Multicast"
-          TopLeft="234.613082419402,309.833331178791" />
         <NodeLayout
           Size="196.8,41.6"
           Id="Package\Data Flow Task\2 CustomerSCD4 Lookup"
           TopLeft="420.416643696115,96.1999993310367" />
         <NodeLayout
-          Size="260,41.6"
-          Id="Package\Data Flow Task\8 Update City_Email In CustomerSCD4"
-          TopLeft="0.708333595138441,502.533329877026" />
+          Size="166.4,41.6"
+          Id="Package\Data Flow Task\7 Second Multicast"
+          TopLeft="234.613082419402,309.833331178791" />
+        <NodeLayout
+          Size="214.4,41.6"
+          Id="Package\Data Flow Task\4 CustomerSCD4 Destination"
+          TopLeft="567.767826121391,502.326186983077" />
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Data Flow Task\3 First Multicast"
@@ -1881,7 +1881,7 @@ WHERE Customer_ID = ? and To_Date = '9999-12-30';</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1891,7 +1891,7 @@ WHERE Customer_ID = ? and To_Date = '9999-12-30';</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

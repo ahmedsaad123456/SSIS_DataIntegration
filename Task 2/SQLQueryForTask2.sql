@@ -27,7 +27,7 @@ INSERT INTO Customer (ID, Name, City, Email, Update_Date) VALUES (6, 'Sophia Jon
 INSERT INTO Customer (ID, Name, City, Email, Update_Date) VALUES (7, 'William Davis', 'San Antonio', 'william.davis@example.com', '2024-04-25');
 INSERT INTO Customer (ID, Name, City, Email, Update_Date) VALUES (8, 'Olivia Garcia', 'San Diego', 'olivia.garcia@example.com', '2024-04-25');
 INSERT INTO Customer (ID, Name, City, Email, Update_Date) VALUES (9, 'James Martinez', 'Dallas', 'james.martinez@example.com', '2024-04-25');
-INSERT INTO Customer (ID, Name, City, Email, Update_Date) VALUES (10, 'Emma Hernandez', 'San Jose', 'emma.hernandez@example.com', '2024-04-25');
+INSERT INTO Customer (ID, Name, City, Email, Update_Date) VALUES (11, 'Emma Hernandez', 'San Jose', 'emma.hernandez@example.com', '2024-04-26');
 
 
 -- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -36,10 +36,9 @@ INSERT INTO Customer (ID, Name, City, Email, Update_Date) VALUES (10, 'Emma Hern
 
 -- update statement to change the city or email
 UPDATE Customer 
-SET Name = 'John Doe', 
-    City = 'los', 
-    Email = 'john.doe@example.com', 
-    Update_Date = '2024-04-30'
+SET  
+    City = 'new', 
+    Update_Date = '2024-05-1'
 WHERE ID = 1;
 
 
@@ -82,10 +81,12 @@ WHERE ID = ?;
 
 select * from CustomerSCD4
 
+select * from CustomerHistory
 
 
 -- delete table CustomerSCD4
 DROP TABLE CustomerSCD4
+
 
 
 -- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

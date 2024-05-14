@@ -32,7 +32,7 @@ VALUES
 -- insert another data to test it in a new run
 INSERT INTO Employee (ID, Name, City, Email, Schedule_Date)
 VALUES
-(1007, 'Mohamed', 'Cairo', 'Mohamed@mail.com', '2024-04-20'),
+(1007, 'Mohamed', 'Cairo', 'Mohamed@mail.com', '2024-04-26'),
 (1008, 'Sara', 'Giza', 'Sara@mail.com', '2024-04-20'),
 (1009, 'Ali', 'Cairo', 'Ali@mail.com', '2024-04-20');
 
